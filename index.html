@@ -3,38 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loko Coffee â€” POS, Accounting & Web Order (Professional Prototype)</title>
+  <title>Coffee Express — POS, Accounting & Web Order (Professional Prototype)</title>
   <style>
     /* ==========================================================================
        DESIGN TOKENS (MOKA POS ENTERPRISE THEME)
        ========================================================================== */
     :root {
       /* Primary Brand: Sober Enterprise Green */
-      --primary: #154734;
-      --primary-dark: #0D2E21;
-      --primary-hover: #1E5C44;
-      --primary-light: #EBF4F0;
-      --primary-border: #BCD5CA;
+      --primary: #4C2B08;
+      --primary-dark: #352006;
+      --primary-hover: #6D3914;
+      --primary-light: #F4EADF;
+      --primary-border: #D7BDA6;
 
       /* Secondary & Accents: Used sparingly */
-      --accent-warm: #C86D27;
-      --accent-warm-light: #FEF7ED;
+      --accent-warm: #6D3914;
+      --accent-warm-light: #F7EEE4;
 
       /* Neutral Surfaces & Backgrounds */
-      --canvas: #F4F5F7;
+      --canvas: #F7F3EE;
       --surface: #FFFFFF;
-      --surface-secondary: #FAFAFA;
-      --surface-hover: #F8F9FA;
+      --surface-secondary: #FBF8F4;
+      --surface-hover: #F6F0E9;
 
       /* Borders */
-      --border-color: #E2E5E8;
-      --border-subtle: #EEF0F2;
-      --border-focus: #154734;
+      --border-color: #E3D8CC;
+      --border-subtle: #EEE7DF;
+      --border-focus: #4C2B08;
 
       /* Typography */
-      --text-main: #1F2937;
-      --text-secondary: #4B5563;
-      --text-muted: #8C96A3;
+      --text-main: #352A21;
+      --text-secondary: #6C5949;
+      --text-muted: #796B60;
       --text-inverse: #FFFFFF;
 
       /* Status Colors */
@@ -79,7 +79,7 @@
 
     body {
       font-family: var(--font-family);
-      background-color: #0F1713;
+      background-color: #241C16;
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -124,7 +124,7 @@
        TOP PRESENTER TOOLBAR (CONTROL BAR)
        ========================================================================== */
     .presenter-bar {
-      background: #0B2117;
+      background: #352006;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding: 10px 24px;
       display: flex;
@@ -148,7 +148,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #154734;
+      background: #4C2B08;
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 5px 12px;
       border-radius: var(--radius-sm);
@@ -192,7 +192,7 @@
       background: rgba(255, 255, 255, 0.05);
     }
     .switcher-btn.active {
-      background: #154734;
+      background: #4C2B08;
       color: #FFFFFF;
       box-shadow: var(--shadow-sm);
     }
@@ -228,9 +228,9 @@
     }
 
     .btn-guide {
-      background: #C86D27;
+      background: #6D3914;
       color: #FFFFFF;
-      border-color: #C86D27;
+      border-color: #6D3914;
     }
     .btn-guide:hover {
       background: #B35F1F;
@@ -245,36 +245,36 @@
       align-items: center;
       justify-content: center;
       padding: 24px 16px;
-      background: #111B16;
+      background: #EAE0D5;
       overflow: auto;
     }
 
-    /* Tablet Landscape Frame (Loko POS) */
+    /* Tablet Landscape Frame (Coffee Express POS) */
     .frame-tablet {
       width: 100%;
       max-width: 1260px;
       height: 820px;
       background: var(--canvas);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-float), 0 0 0 10px #1E2822, 0 0 0 12px rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-float), 0 0 0 10px #B7957F, 0 0 0 12px rgba(255, 255, 255, 0.08);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       position: relative;
     }
 
-    /* Mobile Frame (Loko Order & WhatsApp) */
+    /* Mobile Frame (Coffee Express Order & WhatsApp) */
     .frame-mobile {
       width: 410px;
       height: 840px;
       background: #000000;
       border-radius: 46px;
-      box-shadow: var(--shadow-float), 0 0 0 10px #1C2621, 0 0 0 12px rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-float), 0 0 0 10px #B7957F, 0 0 0 12px rgba(255, 255, 255, 0.1);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       position: relative;
-      border: 4px solid #28362F;
+      border: 4px solid #4C2B08;
     }
 
     .phone-notch {
@@ -322,7 +322,7 @@
     }
 
     /* ==========================================================================
-       LOKO POS â€” MOKA STYLE PROFESSIONAL INTERFACE
+       COFFEE EXPRESS POS — MOKA STYLE PROFESSIONAL INTERFACE
        ========================================================================== */
     .pos-header {
       background: var(--primary);
@@ -795,16 +795,72 @@
 
     .kanban-board {
       flex: 1;
+      min-height: 0;
       display: flex;
       gap: 14px;
       padding: 16px 20px;
       overflow-x: auto;
     }
 
+    .new-orders-queue {
+      flex: 0 0 auto;
+      min-width: 0;
+      margin: 14px 20px 0;
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      overflow: hidden;
+    }
+    .new-orders-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--primary-border);
+    }
+    .new-orders-heading h3 { font-size: 13px; }
+    .new-orders-heading p { margin-left: auto; font-size: 12px; color: var(--text-secondary); }
+    .new-orders-track {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 12px;
+      max-height: 225px;
+      align-items: stretch;
+      overscroll-behavior-x: contain;
+    }
+    .new-orders-track .order-card { flex: 0 0 280px; min-width: 0; overflow-y: auto; }
+    .new-orders-track:empty::before {
+      content: 'Belum ada pesanan baru. Pesanan masuk akan tampil di sini.';
+      padding: 12px 2px;
+      color: var(--text-secondary);
+      font-size: 12px;
+    }
+    #modifierForm .modifier-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .modifier-grid label { display:flex; flex-direction:column; gap:6px; font-size:13px; }
+    .modifier-grid label[hidden] { display:none; }
+    #modifierForm { overflow-y:auto; }
+    #modifierModal,#billsModal { z-index:4000; }
+    .kasir-cart-panel > .btn-secondary { flex:0 0 auto; }
+    .cashier-notice { flex-shrink:0; }
+    .modifier-grid input,.modifier-grid select,.modifier-grid textarea { width:100%; padding:10px; border:1px solid var(--border-color); border-radius:6px; background:var(--surface); }
+    .bill-row { padding:14px; border:1px solid var(--border-color); border-radius:6px; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .bill-row p { margin-top:6px; font-size:12px; color:var(--text-secondary); }
+    .cashier-notice { padding:8px 14px; font-size:12px; background:var(--primary-light); color:var(--primary); }
+    .cart-actions { flex-wrap:wrap; }
+    .cart-actions .btn-pay { flex-basis:100%; }
+    .order-status-select {
+      width: 100%; min-height: 32px; padding: 5px 8px;
+      border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+      color: var(--text-secondary); background: var(--surface);
+      font: inherit; font-size: 12px;
+    }
+
     .kanban-col {
       flex: 1;
+      min-height: 0;
       min-width: 260px;
-      background: #ECEFF1;
+      background: var(--surface-secondary);
       border-radius: var(--radius-md);
       border: 1px solid var(--border-color);
       display: flex;
@@ -813,7 +869,7 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .kanban-col.drag-over {
-      background: #E0EAE5;
+      background: var(--primary-light);
       border: 1px dashed var(--primary);
     }
 
@@ -1058,7 +1114,7 @@
       line-height: 1.4;
     }
     .ai-insight-text strong {
-      color: #1F2937;
+      color: #352A21;
     }
 
     /* KPI Metrics Cards Grid */
@@ -1129,7 +1185,7 @@
       font-size: 13px;
     }
     .data-table th {
-      background: #F8F9FA;
+      background: #F6F0E9;
       color: var(--text-secondary);
       font-weight: 600;
       padding: 10px 14px;
@@ -1173,13 +1229,13 @@
     }
 
     /* ==========================================================================
-       LOKO ORDER â€” MOBILE INTERFACE (KOPI KENANGAN FLOW + REAL PHOTOS)
+       COFFEE EXPRESS ORDER — MOBILE INTERFACE (KOPI KENANGAN FLOW + REAL PHOTOS)
        ========================================================================== */
     .order-mobile-app {
       flex: 1;
       display: flex;
       flex-direction: column;
-      background: #F5F6F8;
+      background: #FBF8F4;
       overflow: hidden;
       color: var(--text-main);
     }
@@ -1199,7 +1255,7 @@
     }
     .order-user-greet {
       font-size: 12px;
-      color: #BCD5CA;
+      color: #D7BDA6;
     }
     .order-user-name {
       font-size: 18px;
@@ -1484,7 +1540,7 @@
     }
 
     /* ==========================================================================
-       LOKO ASSISTANT (WHATSAPP CHATBOT MOCKUP)
+       COFFEE EXPRESS ASSISTANT (WHATSAPP CHATBOT MOCKUP)
        ========================================================================== */
     .wa-chat-app {
       flex: 1;
@@ -1713,8 +1769,8 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #0B2117;
-      border: 1px solid #1E5C44;
+      background: #352006;
+      border: 1px solid #6D3914;
       border-left: 4px solid #10B981;
       color: #FFFFFF;
       border-radius: var(--radius-sm);
@@ -1784,6 +1840,50 @@
       margin-top: 3px;
       line-height: 1.4;
     }
+    /* Coffee Express: quiet surfaces, editorial brand, practical controls. */
+    :root { --caramel:#AB7743; --almond:#B7957F; --vanilla:#D7BDA6; }
+    button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--caramel); outline-offset:3px; }
+    .brand-badge { background:transparent; border:0; padding-left:0; text-transform:lowercase; font-family:Georgia,serif; font-size:23px; letter-spacing:-.7px; }
+    .brand-title { font-size:12px; }
+    .switcher-btn { min-height:42px; color:#E5D7C8; }
+    .switcher-btn.active { background:var(--vanilla); color:var(--primary); }
+    .frame-mobile.view-panel { width:410px; max-width:100%; height:840px; flex-shrink:0; }
+    .frame-tablet.view-panel { height:820px; }
+    .order-hero-banner { border-radius:0; padding:24px 22px 32px; background:var(--primary); }
+    .order-user-greet { color:var(--vanilla); font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+    .order-user-name { font:36px/1.08 Georgia,serif; letter-spacing:-1px; max-width:270px; margin:12px 0; }
+    .order-hero-caption { color:#E5D7C8; font-size:12px; line-height:1.6; }
+    .order-products-container { padding-bottom:22px; }
+    .order-product-card { box-shadow:none; border-radius:0; border-width:0 0 1px; padding:16px 0; }
+    .order-prod-thumb { background:#F1E6DA; border-radius:8px; }
+    .order-prod-name { font-size:15px; }
+    .order-prod-desc { line-height:1.5; }
+    .order-product-card button, .service-btn { min-height:44px; }
+    .order-subpage { overflow-y:auto; }
+    .order-subpage > div { flex-shrink:0; }
+    .mobile-push-banner { visibility:hidden; pointer-events:none; background:var(--primary); }
+    .mobile-push-banner.show { visibility:visible; }
+    .order-prod-name { white-space:normal; }
+    .order-user-name { max-width:100%; font-size:34px; }
+    .tax-toggle-btn { background:var(--primary); color:var(--vanilla); border-color:var(--almond); }
+    .order-floating-cart-bar { cursor:pointer; }
+    .wa-msg { white-space:pre-line; overflow-wrap:anywhere; }
+    .order-card { box-shadow:none; border-left:3px solid var(--vanilla); }
+    .order-card.highlight-new { border-left-color:var(--caramel); }
+    .demo-note { font-size:12px; line-height:1.5; color:var(--text-secondary); }
+    @media(max-width:700px) {
+      .presenter-bar { padding:10px 12px; gap:8px; position:relative; }
+      .brand-title,.toolbar-actions .btn-guide { display:none; }
+      .device-switcher { width:100%; }
+      .switcher-btn { flex:1; justify-content:center; padding:8px 4px; font-size:11px; }
+      .switcher-btn .ui-icon { display:none; }
+      .toolbar-actions { flex-wrap:wrap; }
+      .app-viewport-container { padding:12px 6px; align-items:flex-start; }
+      .frame-mobile.view-panel { border-radius:16px; border-width:1px; box-shadow:none; height:820px; }
+      .phone-notch,.mobile-status-bar { display:none; }
+      .frame-tablet.view-panel { min-width:900px; }
+      .app-viewport-container:has(.frame-tablet.active) { justify-content:flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -1795,7 +1895,7 @@
     <div class="brand-group">
       <div class="brand-badge">
         <svg class="ui-icon" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-        LOKO COFFEE
+        COFFEE EXPRESS
       </div>
       <div class="brand-title">POS + Pembukuan <strong>Otomatis</strong></div>
     </div>
@@ -1803,15 +1903,15 @@
     <div class="device-switcher">
       <button class="switcher-btn active" id="btnSwitchPos" onclick="switchDevice('pos')">
         <svg class="ui-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-        Loko POS (Tablet)
+        POS
       </button>
       <button class="switcher-btn" id="btnSwitchOrder" onclick="switchDevice('order')">
         <svg class="ui-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-        Loko Order (Mobile)
+        Online Order
       </button>
       <button class="switcher-btn" id="btnSwitchAssistant" onclick="switchDevice('assistant')">
         <svg class="ui-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        Loko Assistant (WA)
+        WhatsApp
       </button>
     </div>
 
@@ -1836,7 +1936,7 @@
   <main class="app-viewport-container">
 
     <!-- ======================================================================
-         1. LOKO POS (Tablet Landscape View â€” Moka Pattern)
+         1. COFFEE EXPRESS POS (Tablet Landscape View — Moka Pattern)
          ====================================================================== -->
     <div class="frame-tablet view-panel active" id="viewPos">
       
@@ -1908,6 +2008,8 @@
 
           <!-- Fixed Right Cart Panel -->
           <div class="kasir-cart-panel">
+            <div class="cashier-notice" id="cashierNotice" role="status">Tagihan baru · Belum dikirim ke dapur</div>
+            <button class="btn-secondary" onclick="openBills()" style="margin:8px 14px;">Tagihan Aktif <span id="activeBillCount">0</span></button>
             <div class="cart-header">
               <div class="order-type-selector">
                 <button class="order-type-btn active" onclick="setOrderType('Dine-in', this)">Dine-in</button>
@@ -1937,7 +2039,8 @@
                 <span class="tabular-nums" id="posSubtotal">Rp0</span>
               </div>
               <div class="summary-row">
-                <span>Diskon Promo</span>
+                <label for="posDiscountInput">Diskon (Rp)</label>
+                <input id="posDiscountInput" type="number" min="0" step="1" value="0" style="width:95px;" onchange="setPosDiscount(this.value)">
                 <span class="tabular-nums" id="posDiscount" style="color:var(--success);">-Rp0</span>
               </div>
               <div class="summary-row">
@@ -1952,8 +2055,9 @@
 
             <div class="cart-actions">
               <button class="btn-secondary" onclick="holdCurrentCart()">
-                Simpan
+                Simpan Tagihan
               </button>
+              <button class="btn-secondary" onclick="sendToKitchen()">Kirim ke Dapur</button>
               <button class="btn-pay" onclick="openPaymentModal()">
                 Bayar Sekarang
               </button>
@@ -1973,22 +2077,22 @@
             </div>
             <div style="font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
               <svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Tarik & Letakkan (Drag & Drop) kartu antar kolom untuk update status
+              Tarik kartu atau pilih status untuk memindahkan pesanan
             </div>
           </div>
 
-          <div class="kanban-board">
-            <!-- Col 1: Baru -->
-            <div class="kanban-col" id="kanbanColBaru" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" ondrop="drop(event, 'baru')">
-              <div class="kanban-col-header" style="border-top:3px solid var(--accent-warm);">
-                <span>Pesanan Baru</span>
+          <section class="new-orders-queue" id="kanbanColBaru" aria-labelledby="newOrdersTitle">
+              <div class="new-orders-heading">
+                <h3 id="newOrdersTitle">Pesanan Baru</h3>
                 <span class="badge-counter tabular-nums" id="countColBaru">1</span>
+                <p>Geser ke samping · Tarik keluar untuk mengubah status</p>
               </div>
-              <div class="kanban-cards" id="colBaruCards">
+              <div class="new-orders-track" id="colBaruCards" tabindex="0" role="region" aria-label="Antrean pesanan baru, geser horizontal. Tidak menerima drop.">
                 <!-- Cards injected here -->
               </div>
-            </div>
+          </section>
 
+          <div class="kanban-board">
             <!-- Col 2: Diproses -->
             <div class="kanban-col" id="kanbanColProses" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" ondrop="drop(event, 'proses')">
               <div class="kanban-col-header" style="border-top:3px solid var(--info);">
@@ -2052,8 +2156,8 @@
                 <svg class="ui-icon ui-icon-lg" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
               </div>
               <div class="ai-insight-text">
-                <strong>Insight AI Finansial Loko:</strong> 
-                Omzet harian Loko Braga melampaui target +14%. Penjualan <em>Aren Latte & Butter Croissant</em> menyumbang 38% margin kotor. 
+                <strong>Insight AI Finansial Coffee Express:</strong>
+                Omzet harian Coffee Express Braga melampaui target +14%. Penjualan <em>Aren Latte & Butter Croissant</em> menyumbang 38% margin kotor.
                 <span id="aiInsightDynamic">Biaya bahan baku stabil. Rekomendasi: Pertahankan paket bundling kopi + donat pada jam makan siang.</span>
               </div>
             </div>
@@ -2064,7 +2168,7 @@
                 <div class="metric-card">
                   <div class="metric-label">Omzet Hari Ini</div>
                   <div class="metric-value tabular-nums" id="metricOmzetHariIni">Rp5.940.000</div>
-                  <div class="metric-sub">â–² +12.4% vs kemarin</div>
+                  <div class="metric-sub">▲ +12.4% vs kemarin</div>
                 </div>
                 <div class="metric-card">
                   <div class="metric-label">HPP (COGS 35%)</div>
@@ -2097,26 +2201,26 @@
               <div style="display:grid; grid-template-columns: 2fr 1fr; gap:14px;">
                 <div class="table-card">
                   <div class="table-card-header">
-                    <span>Performa Penjualan: Loko Braga vs Loko Dago</span>
+                    <span>Performa Penjualan: Coffee Express Braga vs Coffee Express Dago</span>
                     <span style="font-size:11px; color:var(--text-muted);">Hari Ini</span>
                   </div>
                   <div style="padding:18px; display:flex; flex-direction:column; gap:16px;">
                     <div>
                       <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
-                        <span><strong>Loko Braga</strong> (142 Transaksi Â· Rata-rata Rp41.800)</span>
+                        <span><strong>Coffee Express Braga</strong> (142 Transaksi · Rata-rata Rp41.800)</span>
                         <strong class="tabular-nums" id="omzetBragaBar">Rp5.940.000</strong>
                       </div>
-                      <div style="width:100%; height:10px; background:#EEF0F2; border-radius:4px; overflow:hidden;">
+                      <div style="width:100%; height:10px; background:#EEE7DF; border-radius:4px; overflow:hidden;">
                         <div style="width:58%; height:100%; background:var(--primary); border-radius:4px;"></div>
                       </div>
                     </div>
 
                     <div>
                       <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
-                        <span><strong>Loko Dago</strong> (114 Transaksi Â· Rata-rata Rp40.300)</span>
+                        <span><strong>Coffee Express Dago</strong> (114 Transaksi · Rata-rata Rp40.300)</span>
                         <strong class="tabular-nums" id="omzetDagoBar">Rp4.600.000</strong>
                       </div>
-                      <div style="width:100%; height:10px; background:#EEF0F2; border-radius:4px; overflow:hidden;">
+                      <div style="width:100%; height:10px; background:#EEE7DF; border-radius:4px; overflow:hidden;">
                         <div style="width:45%; height:100%; background:var(--accent-warm); border-radius:4px;"></div>
                       </div>
                     </div>
@@ -2159,7 +2263,7 @@
                       Setiap kali kasir / web order memproses transaksi, jurnal akuntansi debit/kredit langsung dicatat tanpa perlu admin akunting.
                     </div>
                   </div>
-                  <button class="tool-pill" onclick="simulateExportCSV('Jurnal_Loko_Coffee.csv')">
+                  <button class="tool-pill" onclick="simulateExportCSV('Jurnal_Coffee Express_Coffee.csv')">
                     Ekspor CSV
                   </button>
                 </div>
@@ -2188,7 +2292,7 @@
                 <div class="table-card">
                   <div class="table-card-header">
                     <span>Laporan Laba Rugi (P&L Bulanan)</span>
-                    <button class="tool-pill" onclick="simulateExportCSV('Laba_Rugi_Loko.csv')">Unduh Excel</button>
+                    <button class="tool-pill" onclick="simulateExportCSV('Laba_Rugi_Coffee Express.csv')">Unduh Excel</button>
                   </div>
                   <table class="data-table">
                     <tbody>
@@ -2218,7 +2322,7 @@
                   <div class="table-card-header">
                     <span>Laporan Neraca (Balance Sheet)</span>
                     <span style="font-size:11px; background:var(--success-bg); color:var(--success); border:1px solid var(--success-border); padding:2px 6px; border-radius:var(--radius-sm); font-weight:600;">
-                      âœ“ Neraca Seimbang
+                      ✓ Neraca Seimbang
                     </span>
                   </div>
                   <table class="data-table">
@@ -2250,7 +2354,7 @@
               <div class="table-card">
                 <div class="table-card-header">
                   <div>
-                    <span>Rekonsiliasi Bank Otomatis (Loko vs Mutasi Rekening BCA)</span>
+                    <span>Rekonsiliasi Bank Otomatis (Coffee Express vs Mutasi Rekening BCA)</span>
                     <div style="font-size:11px; font-weight:normal; color:var(--text-muted);">
                       Membandingkan mutasi penerimaan kasir & settlement QRIS dengan rekening koran mutasi bank.
                     </div>
@@ -2262,12 +2366,12 @@
 
                 <div class="reconciliation-grid" style="padding:16px;">
                   <div>
-                    <h4 style="font-size:13px; margin-bottom:8px; color:var(--primary);">Catatan Pembukuan Loko</h4>
+                    <h4 style="font-size:13px; margin-bottom:8px; color:var(--primary);">Catatan Pembukuan Coffee Express</h4>
                     <table class="data-table" style="font-size:12px;">
                       <thead>
                         <tr><th>Tanggal</th><th>Deskripsi</th><th>Nominal</th><th>Status</th></tr>
                       </thead>
-                      <tbody id="reconcileLokoBody">
+                      <tbody id="reconcileExpressBody">
                         <!-- Injected via JS -->
                       </tbody>
                     </table>
@@ -2316,7 +2420,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><strong>Kopi Susu Loko</strong></td>
+                      <td><strong>Kopi Susu Coffee Express</strong></td>
                       <td>Kopi Espresso 18g, Susu Fresh 120ml, Gula Aren 25ml, Cup+Sedotan</td>
                       <td class="tabular-nums">Rp7.700</td>
                       <td class="tabular-nums">Rp22.000</td>
@@ -2406,7 +2510,7 @@
                       <strong class="tabular-nums">Rp1.575.000</strong>
                     </div>
                     <div style="background:var(--success-bg); color:var(--success); border:1px solid var(--success-border); padding:10px; border-radius:var(--radius-sm); font-size:12px; line-height:1.4;">
-                      âœ“ Dihitung otomatis dari transaksi kasir. Siap diekspor ke e-Faktur & formulir SPT masa.
+                      ✓ Dihitung otomatis dari transaksi kasir. Siap diekspor ke e-Faktur & formulir SPT masa.
                     </div>
                   </div>
                 </div>
@@ -2420,7 +2524,7 @@
     </div>
 
     <!-- ======================================================================
-         2. LOKO ORDER (Mobile Web â€” Kopi Kenangan Flow)
+         2. COFFEE EXPRESS ORDER (Mobile Web — Kopi Kenangan Flow)
          ====================================================================== -->
     <div class="frame-mobile view-panel" id="viewOrder">
       <div class="phone-notch">
@@ -2439,15 +2543,16 @@
         </div>
         <div class="push-content">
           <h5 id="pushBannerTitle">Pesanan Diterima!</h5>
-          <p id="pushBannerBody">Barista Loko Braga sedang meracik kopimu.</p>
+          <p id="pushBannerBody">Barista Coffee Express Braga sedang meracik kopimu.</p>
         </div>
       </div>
 
       <div class="order-mobile-app">
         <div class="order-app-body" id="orderAppBody">
           <div class="order-hero-banner">
-            <div class="order-user-greet">Selamat datang di Loko Coffee,</div>
-            <div class="order-user-name">Rian Pratama</div>
+            <div class="order-user-greet">Coffee Express · Bandung</div>
+            <div class="order-user-name">Kopi enak.<br>Tanpa menunggu.</div>
+            <p class="order-hero-caption">Hai, Rian. Racikan favoritmu, siap menemani hari.</p>
           </div>
 
           <!-- Pickup / Dine-in / Delivery Card -->
@@ -2460,8 +2565,8 @@
             
             <div class="selected-outlet-info">
               <div>
-                <div class="outlet-name-title" id="orderOutletTitle">Loko Coffee â€” Braga</div>
-                <div class="outlet-dist-sub" id="orderOutletDist">Jl. Braga No. 45 Â· 1.2 km dari lokasimu</div>
+                <div class="outlet-name-title" id="orderOutletTitle">Coffee Express — Braga</div>
+                <div class="outlet-dist-sub" id="orderOutletDist">Jl. Braga No. 45 · 1.2 km dari lokasimu</div>
               </div>
               <button style="font-size:12px; font-weight:700; color:var(--primary);" onclick="toggleMobileOutlet()">
                 Ganti Outlet
@@ -2471,11 +2576,12 @@
 
           <div class="points-bar-banner">
             <div>
-              <span>Loko Points: </span>
+              <span>Coffee Express Points: </span>
               <span class="point-val tabular-nums" id="orderUserPoints">14.500 Poin</span>
             </div>
             <span style="color:var(--accent-warm); font-weight:600; font-size:11px;">Tier Gold Bean</span>
           </div>
+          <button id="latestOrderButton" class="btn-secondary" style="display:none; margin:0 14px 12px;" onclick="showLatestOrder()">Lacak pesanan terakhir</button>
 
           <div class="order-category-scroll">
             <button class="order-cat-item active" onclick="filterMobileCategory('all', this)">Semua Menu</button>
@@ -2490,7 +2596,7 @@
         </div>
 
         <!-- Floating Cart Bar -->
-        <div class="order-floating-cart-bar" id="orderFloatingCart" onclick="openOrderCheckout()" style="display:none;">
+        <div class="order-floating-cart-bar" id="orderFloatingCart" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openOrderCheckout()}" onclick="openOrderCheckout()" style="display:none;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="background:rgba(255,255,255,0.2); border-radius:var(--radius-sm); padding:2px 8px; font-size:12px; font-weight:700;" id="orderCartCount">0</span>
             <span style="font-weight:600; font-size:13px;">Lihat Pesanan</span>
@@ -2522,12 +2628,12 @@
             <div style="display:flex; flex-direction:column; gap:8px;">
               <div style="display:flex; justify-content:space-between; align-items:center; background:#FFF; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:10px 12px; font-size:13px;">
                 <span>Voucher: <strong>DISKONKOPI10 (10%)</strong></span>
-                <span style="color:var(--success); font-weight:700;">Terpasang âœ“</span>
+                <span style="color:var(--success); font-weight:700;">Terpasang ✓</span>
               </div>
 
               <label style="display:flex; align-items:center; gap:8px; font-size:12px; cursor:pointer;">
                 <input type="checkbox" id="chkUsePoints" onchange="calcMobileCartTotal()">
-                <span>Tukarkan <strong>5.000 Loko Points</strong> (-Rp5.000)</span>
+                <span>Tukarkan <strong>5.000 Coffee Express Points</strong> (-Rp5.000)</span>
               </label>
 
               <label style="display:flex; align-items:center; gap:8px; font-size:12px; cursor:pointer;">
@@ -2558,13 +2664,16 @@
                 <span id="chkTaxLabel">PPN 11%</span>
                 <span class="tabular-nums" id="chkTax">Rp0</span>
               </div>
+              <div style="display:flex; justify-content:space-between;"><span>Kantong</span><span id="chkBagFee">Rp1.000</span></div>
               <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:800; border-top:1px solid var(--border-color); padding-top:6px; margin-top:4px;">
                 <span>Total Pembayaran</span>
                 <span class="tabular-nums" id="chkGrandTotal" style="color:var(--primary);">Rp0</span>
               </div>
             </div>
 
-            <button class="btn-pay" onclick="submitMobileOrder()" style="padding:14px; width:100%; margin-top:auto;">
+            <p class="demo-note">Uji coba: pesanan diteruskan ke POS dan chat WhatsApp simulasi. Pembayaran bisa dilewati.</p>
+            <button class="btn-secondary" onclick="submitMobileOrder(true)" style="min-height:48px;">Lewati pembayaran — uji coba</button>
+            <button class="btn-pay" onclick="submitMobileOrder(false)" style="padding:14px; width:100%; margin-top:auto;">
               Bayar Sekarang (Simulasi QRIS)
             </button>
           </div>
@@ -2581,13 +2690,13 @@
           <div style="padding:20px; display:flex; flex-direction:column; gap:16px; flex:1;">
             <div style="background:var(--primary-light); border:1px solid var(--primary-border); border-radius:var(--radius-sm); padding:16px; text-align:center;">
               <div style="font-size:12px; color:var(--text-secondary);">Nomor Antrean Anda</div>
-              <div style="font-size:26px; font-weight:800; color:var(--primary); margin:4px 0;" id="trackOrderNo">#LK-0145</div>
+              <div style="font-size:26px; font-weight:800; color:var(--primary); margin:4px 0;" id="trackOrderNo">#CE-0145</div>
               <div style="font-size:12px; font-weight:600; color:var(--text-secondary);" id="trackETA">Estimasi Siap: ~6 Menit</div>
             </div>
 
             <div class="tracking-stepper">
               <div class="step-item done" id="step1">
-                <div class="step-indicator">âœ“</div>
+                <div class="step-indicator">✓</div>
                 <div class="step-desc">
                   <h4>Pesanan Diterima</h4>
                   <p>Pembayaran QRIS dikonfirmasi.</p>
@@ -2598,7 +2707,7 @@
                 <div class="step-indicator">2</div>
                 <div class="step-desc">
                   <h4>Barista Sedang Meracik</h4>
-                  <p>Sedang disiapkan di Loko Coffee Braga.</p>
+                  <p>Sedang disiapkan di Coffee Express Braga.</p>
                 </div>
               </div>
 
@@ -2620,8 +2729,9 @@
             </div>
 
             <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px;">
+              <button class="btn-pay" onclick="openCustomerChat()">Lihat konfirmasi WhatsApp</button>
               <button class="btn-secondary" onclick="switchDevice('pos'); switchPosTab('pesanan');">
-                Lihat Pesanan di POS Tab Pesanan âž”
+                Lihat Pesanan di POS Tab Pesanan ➔
               </button>
               <button class="btn-secondary" onclick="closeOrderSubpages()">
                 Kembali ke Beranda
@@ -2634,7 +2744,7 @@
     </div>
 
     <!-- ======================================================================
-         3. LOKO ASSISTANT (WhatsApp AI Mockup)
+         3. COFFEE EXPRESS ASSISTANT (WhatsApp AI Mockup)
          ====================================================================== -->
     <div class="frame-mobile view-panel" id="viewAssistant">
       <div class="phone-notch">
@@ -2657,9 +2767,9 @@
             </div>
             <div class="wa-user-info">
               <div class="wa-user-name">
-                Loko Assistant <span class="wa-verified">âœ“</span>
+                Coffee Express Assistant <span class="wa-verified">✓</span>
               </div>
-              <div class="wa-status">AI Business Partner (Online)</div>
+              <div class="wa-status">Simulasi WhatsApp · sesi demo</div>
             </div>
           </div>
           <div style="color:#FFF;">
@@ -2673,7 +2783,7 @@
           <button class="persona-chip" id="chipPersonaCustomer" onclick="switchWaPersona('customer')">Pelanggan</button>
         </div>
 
-        <div class="wa-messages-container" id="waMessagesStream">
+        <div class="wa-messages-container" id="waMessagesStream" role="log" aria-live="polite">
           <!-- Injected via JS -->
         </div>
 
@@ -2696,6 +2806,31 @@
        SHARED MODALS
        ======================================================================== -->
 
+  <div class="modal-overlay" id="modifierModal" role="dialog" aria-modal="true" aria-labelledby="modifierTitle">
+    <div class="modal-card" style="width:540px; max-width:95vw;">
+      <div class="modal-header"><h3 id="modifierTitle">Racikan produk</h3><button aria-label="Tutup detail produk" onclick="closeModal('modifierModal')">✕</button></div>
+      <form id="modifierForm" onsubmit="event.preventDefault();saveModifier()">
+        <div class="modal-body modifier-grid">
+          <label>Ukuran<select id="modSize"><option value="regular">Regular</option><option value="large">Large (+Rp5.000)</option></select></label>
+          <label>Jumlah<input id="modQty" type="number" min="1" max="99" value="1" required></label>
+          <label>Gula<select id="modSugar"><option>Normal</option><option>Less sugar</option><option>Tanpa gula</option></select></label>
+          <label>Es<select id="modIce"><option>Normal</option><option>Less ice</option><option>Tanpa es</option></select></label>
+          <label>Extra shot<select id="modShot"><option value="0">Tidak</option><option value="1">Tambah (+Rp5.000)</option></select></label>
+          <label>Susu<select id="modMilk"><option value="regular">Standar</option><option value="oat">Susu oat (+Rp7.000)</option></select></label>
+          <label style="grid-column:1/-1;">Catatan<textarea id="modNote" maxlength="180" rows="2" placeholder="Contoh: sajikan tanpa sedotan"></textarea></label>
+          <p id="modifierPrice" style="grid-column:1/-1; font-weight:700;"></p>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn-secondary" onclick="closeModal('modifierModal')">Batal</button><button class="btn-pay" type="submit">Simpan Item</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-overlay" id="billsModal" role="dialog" aria-modal="true" aria-labelledby="billsTitle">
+    <div class="modal-card" style="width:650px; max-width:95vw;">
+      <div class="modal-header"><h3 id="billsTitle">Tagihan Aktif</h3><button aria-label="Tutup tagihan aktif" onclick="closeModal('billsModal')">✕</button></div>
+      <div class="modal-body"><p class="demo-note" style="margin-bottom:12px;">Keranjang yang sedang dikerjakan otomatis disimpan saat membuka daftar ini.</p><div id="activeBillsList"></div></div>
+      <div class="modal-footer"><button class="btn-pay" onclick="newBill()">Buat Tagihan Baru</button></div>
+    </div>
+  </div>
   <!-- Modal: Payment & Receipt -->
   <div class="modal-overlay" id="paymentModal">
     <div class="modal-card">
@@ -2758,7 +2893,7 @@
       <div class="modal-footer" id="paymentFooterActions">
         <button class="btn-secondary" onclick="closeModal('paymentModal')">Batal</button>
         <button class="btn-pay" id="btnConfirmPay" onclick="executePayment()">
-          Konfirmasi Bayar âœ“
+          Konfirmasi Bayar ✓
         </button>
       </div>
       <div class="modal-footer" id="receiptFooterActions" style="display:none;">
@@ -2798,11 +2933,11 @@
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="padding:12px; border:1px solid var(--primary); border-radius:var(--radius-sm); background:var(--primary-light); cursor:pointer;" onclick="selectCustomer('Rian Pratama', 14500)">
             <div style="font-weight:700; font-size:13px;">Rian Pratama (Member Gold)</div>
-            <div style="font-size:12px; color:var(--primary);">14.500 Loko Points Â· Telp: 0812-3456-7890</div>
+            <div style="font-size:12px; color:var(--primary);">14.500 Coffee Express Points · Telp: 0812-3456-7890</div>
           </div>
           <div style="padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); cursor:pointer;" onclick="selectCustomer('Siti Sarah', 5200)">
             <div style="font-weight:700; font-size:13px;">Siti Sarah (Member Silver)</div>
-            <div style="font-size:12px; color:var(--text-secondary);">5.200 Loko Points Â· Telp: 0857-1122-3344</div>
+            <div style="font-size:12px; color:var(--text-secondary);">5.200 Coffee Express Points · Telp: 0857-1122-3344</div>
           </div>
           <div style="padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); cursor:pointer;" onclick="selectCustomer('Umum (Non-Member)', 0)">
             <div style="font-weight:700; font-size:13px;">Pelanggan Umum</div>
@@ -2850,7 +2985,7 @@
         </div>
 
         <div style="background:var(--success-bg); color:var(--success); border:1px solid var(--success-border); padding:10px; border-radius:var(--radius-sm); font-weight:600;" id="shiftDiffStatus">
-          âœ“ Selisih: Rp0 (Kas Laci Cocok)
+          ✓ Selisih: Rp0 (Kas Laci Cocok)
         </div>
       </div>
       <div class="modal-footer">
@@ -2879,10 +3014,10 @@
               <tr><th>Aksi Sistem</th><th>Owner</th><th>Manager</th><th>Kasir</th></tr>
             </thead>
             <tbody>
-              <tr><td>Transaksi Kasir & Struk</td><td>âœ“</td><td>âœ“</td><td>âœ“</td></tr>
-              <tr><td>Void & Refund Transaksi</td><td>âœ“</td><td>âœ“ (PIN)</td><td>âœ• Butuh Izin</td></tr>
-              <tr><td>Akses Laporan Laba Rugi</td><td>âœ“</td><td>âœ•</td><td>âœ•</td></tr>
-              <tr><td>Ubah HPP & Resep</td><td>âœ“</td><td>âœ•</td><td>âœ•</td></tr>
+              <tr><td>Transaksi Kasir & Struk</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Void & Refund Transaksi</td><td>✓</td><td>✓ (PIN)</td><td>✕ Butuh Izin</td></tr>
+              <tr><td>Akses Laporan Laba Rugi</td><td>✓</td><td>✕</td><td>✕</td></tr>
+              <tr><td>Ubah HPP & Resep</td><td>✓</td><td>✕</td><td>✕</td></tr>
             </tbody>
           </table>
         </div>
@@ -2892,7 +3027,7 @@
           <div style="background:var(--surface-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:8px; font-family:monospace; font-size:11px; max-height:110px; overflow-y:auto; line-height:1.4;">
             <div>[09:20:11] USER: Budi (Kasir) | Login Tablet Braga</div>
             <div>[09:25:44] USER: Budi | Buka Shift Kas Awal Rp500.000</div>
-            <div>[09:34:12] USER: Budi | Transaksi #LK-0142 Tunai Rp74.000 Berhasil</div>
+            <div>[09:34:12] USER: Budi | Transaksi #CE-0142 Tunai Rp74.000 Berhasil</div>
             <div>[09:34:13] SYSTEM | Auto-Journal #JRN-901 Dicatat Otomatis</div>
           </div>
         </div>
@@ -2909,11 +3044,11 @@
       <svg class="ui-icon ui-icon-lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
     </div>
     <div>
-      <div style="font-weight:700; font-size:13px;">Jurnal Otomatis Tercatat âœ“</div>
-      <div style="font-size:11px; color:#A3C2B4;" id="wowToastDetail">Dr Kas Rp... Â· Cr Penjualan Rp... Â· Dr HPP Rp...</div>
+      <div style="font-weight:700; font-size:13px;">Jurnal Otomatis Tercatat ✓</div>
+      <div style="font-size:11px; color:#A3C2B4;" id="wowToastDetail">Dr Kas Rp... · Cr Penjualan Rp... · Dr HPP Rp...</div>
     </div>
-    <button onclick="switchDevice('pos'); switchPosTab('accounting'); switchAccSubtab('journal'); hideWowToast();" style="background:#154734; border:1px solid rgba(255,255,255,0.2); color:#FFF; padding:5px 10px; border-radius:var(--radius-sm); font-size:11px; font-weight:600; margin-left:8px;">
-      Lihat di Accounting âž”
+    <button onclick="switchDevice('pos'); switchPosTab('accounting'); switchAccSubtab('journal'); hideWowToast();" style="background:#4C2B08; border:1px solid rgba(255,255,255,0.2); color:#FFF; padding:5px 10px; border-radius:var(--radius-sm); font-size:11px; font-weight:600; margin-left:8px;">
+      Lihat di Accounting ➔
     </button>
   </div>
 
@@ -2928,44 +3063,44 @@
     <div class="guide-steps-list">
       <div class="guide-step-card active" onclick="execPitchStep(1)">
         <div class="guide-step-title">1. Pesan di Web Order (Mobile)</div>
-        <div class="guide-step-desc">Pindah ke Loko Order HP, pilih Aren Latte + Kantong, bayar simulasi QRIS.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(1)">â–¶ Jalankan Langkah 1</button>
+        <div class="guide-step-desc">Pindah ke Coffee Express Order HP, pilih kopi, lewati pembayaran, lalu lihat konfirmasi WhatsApp.</div>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(1)">▶ Jalankan Langkah 1</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(2)">
         <div class="guide-step-title">2. Notif & Kartu Masuk di POS</div>
         <div class="guide-step-desc">Buka POS tab Pesanan. Pesanan baru dari web langsung muncul di kolom 'Baru'.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(2)">â–¶ Jalankan Langkah 2</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(2)">▶ Jalankan Langkah 2</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(3)">
         <div class="guide-step-title">3. Barista Drag & Drop ke 'Siap'</div>
         <div class="guide-step-desc">Tarik kartu ke kolom 'Diproses' lalu 'Siap'. Di HP pelanggan muncul push notification.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(3)">â–¶ Jalankan Langkah 3</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(3)">▶ Jalankan Langkah 3</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(4)">
         <div class="guide-step-title">4. Transaksi Kasir POS + Cetak Struk</div>
         <div class="guide-step-desc">Buka Kasir POS, pilih Meja 03, tambah Croissant + Cappuccino, bayar tunai & cetak struk.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(4)">â–¶ Jalankan Langkah 4</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(4)">▶ Jalankan Langkah 4</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(5)">
         <div class="guide-step-title">5. Momen Wow: Jurnal Otomatis</div>
         <div class="guide-step-desc">Lihat toast jurnal muncul. Buka tab Accounting, jurnal Debit/Kredit terisi otomatis!</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(5)">â–¶ Jalankan Langkah 5</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(5)">▶ Jalankan Langkah 5</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(6)">
         <div class="guide-step-title">6. Laba Rugi, Neraca & Rekonsiliasi</div>
         <div class="guide-step-desc">Tunjukkan Laba Bersih naik instan, Neraca seimbang, dan klik 'Cocokkan' bank.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(6)">â–¶ Jalankan Langkah 6</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(6)">▶ Jalankan Langkah 6</button>
       </div>
 
       <div class="guide-step-card" onclick="execPitchStep(7)">
         <div class="guide-step-title">7. Chat WhatsApp AI Owner</div>
         <div class="guide-step-desc">Buka WA Assistant, klik 'Laporan Hari Ini'. AI menjawab dengan angka omzet riil sinkron.</div>
-        <button class="tool-pill" style="margin-top:6px; color:#0D2E21;" onclick="execPitchStep(7)">â–¶ Jalankan Langkah 7</button>
+        <button class="tool-pill" style="margin-top:6px; color:#352006;" onclick="execPitchStep(7)">▶ Jalankan Langkah 7</button>
       </div>
     </div>
   </div>
@@ -2985,7 +3120,7 @@
        ------------------------------------------------------------------------ */
     const MOCK_DATA = {
       products: [
-        { id: 1, name: "Kopi Susu Loko", category: "kopi", price: 22000, cost: 7700, photo: ASSETS.img4, stock: 84, isBest: true },
+        { id: 1, name: "Kopi Susu Coffee Express", category: "kopi", price: 22000, cost: 7700, photo: ASSETS.img4, stock: 84, isBest: true },
         { id: 2, name: "Aren Latte", category: "kopi", price: 26000, cost: 8900, photo: ASSETS.img4, stock: 65, isBest: true },
         { id: 3, name: "Caramel Macchiato", category: "kopi", price: 32000, cost: 13400, photo: ASSETS.img3, stock: 40, isBest: false },
         { id: 4, name: "Cafe Latte", category: "kopi", price: 27000, cost: 9200, photo: ASSETS.img2, stock: 52, isBest: false },
@@ -3004,9 +3139,9 @@
       ],
       tables: [
         { id: "01", status: "empty" }, { id: "02", status: "empty" },
-        { id: "03", status: "occupied", order: "#LK-0139" }, { id: "04", status: "empty" },
-        { id: "05", status: "billing", order: "#LK-0138" }, { id: "06", status: "empty" },
-        { id: "07", status: "empty" }, { id: "08", status: "occupied", order: "#LK-0140" },
+        { id: "03", status: "occupied", order: "#CE-0139" }, { id: "04", status: "empty" },
+        { id: "05", status: "billing", order: "#CE-0138" }, { id: "06", status: "empty" },
+        { id: "07", status: "empty" }, { id: "08", status: "occupied", order: "#CE-0140" },
         { id: "09", status: "empty" }, { id: "10", status: "empty" },
         { id: "11", status: "empty" }, { id: "12", status: "empty" }
       ]
@@ -3018,6 +3153,11 @@
       currentOutlet: "braga",
       isAccountantMode: false,
       
+      activeBills: [],
+      activeBillId: null,
+      lineSequence: 0,
+      orderFilter: "all",
+      posDiscountAmount: 0,
       posCart: [],
       posOrderType: "Dine-in",
       selectedTable: "03",
@@ -3025,7 +3165,7 @@
       
       orders: [
         {
-          id: "LK-0141",
+          id: "CE-0141",
           time: "09:32",
           source: "POS",
           type: "Dine-in",
@@ -3037,7 +3177,7 @@
           status: "proses"
         },
         {
-          id: "LK-0140",
+          id: "CE-0140",
           time: "09:28",
           source: "Web Order",
           type: "Pickup",
@@ -3062,14 +3202,14 @@
         {
           id: "JRN-899",
           time: "09:28",
-          desc: "Penjualan Web Order #LK-0140 (QRIS Masuk ke Settlement)",
+          desc: "Penjualan Web Order #CE-0140 (QRIS Masuk ke Settlement)",
           account: "Dr Piutang QRIS Rp28.860 / Cr Penjualan Rp26.000 / Cr Hutang PPN Rp2.860 | Dr HPP Rp8.900 / Cr Persediaan Rp8.900",
           amount: 28860
         },
         {
           id: "JRN-898",
           time: "09:20",
-          desc: "Penjualan Tunai Kasir Braga #LK-0139 (Dine-in)",
+          desc: "Penjualan Tunai Kasir Braga #CE-0139 (Dine-in)",
           account: "Dr Kas Laci Braga Rp74.000 / Cr Penjualan Rp66.666 / Cr Hutang PPN Rp7.334 | Dr HPP Rp23.000 / Cr Persediaan Rp23.000",
           amount: 74000
         },
@@ -3086,9 +3226,11 @@
         { id: 2, name: "Aren Latte", price: 26000, cost: 8900, qty: 1, notes: "Less sugar, normal ice" }
       ],
       mobileService: "pickup",
-      mobileOutlet: "Loko Coffee â€” Braga",
+      mobileOutlet: "Coffee Express — Braga",
       lastCreatedOrderId: null,
 
+      orderSequence: 1000,
+      customerMessages: [],
       waPersona: "owner"
     };
 
@@ -3108,6 +3250,8 @@
     });
 
     function switchDevice(device) {
+      window.scrollTo(0, 0);
+      document.querySelector('.app-viewport-container').scrollTop=0;
       document.querySelectorAll(".switcher-btn").forEach(btn => btn.classList.remove("active"));
       document.querySelectorAll(".view-panel").forEach(panel => panel.classList.remove("active"));
 
@@ -3214,7 +3358,9 @@
       products.forEach(p => {
         const card = document.createElement("div");
         card.className = "product-card";
-        card.onclick = () => addProductToPosCart(p);
+        card.onclick = () => openModifier(p.id);
+        card.tabIndex=0; card.setAttribute('role','button'); card.setAttribute('aria-label','Pilih '+p.name);
+        card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModifier(p.id)}};
 
         const thumbHtml = p.photo 
           ? `<img src="${p.photo}" class="product-thumb-img" alt="${p.name}">`
@@ -3247,30 +3393,73 @@
       renderProductsGrid(filtered);
     }
 
-    function addProductToPosCart(prod) {
-      const existing = STATE.posCart.find(i => i.id === prod.id);
-      if (existing) {
-        existing.qty++;
-      } else {
-        STATE.posCart.push({
-          id: prod.id,
-          name: prod.name,
-          price: prod.price,
-          cost: prod.cost,
-          qty: 1,
-          notes: "Normal ice/sugar"
-        });
+    function escapeHtml(value) {
+      return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    let modifierProduct=null, modifierLineId=null;
+    function openModifier(productId,lineId=null) {
+      document.getElementById('modifierModal').returnFocus=document.activeElement;
+      modifierProduct=MOCK_DATA.products.find(p=>p.id===productId);
+      if(!modifierProduct) return;
+      modifierLineId=lineId;
+      const item=STATE.posCart.find(i=>i.id===lineId);
+      const m=item?.modifiers||{};
+      document.getElementById('modifierTitle').textContent=modifierProduct.name;
+      for(const [id,value] of Object.entries({modSize:m.size||'regular',modQty:item?.qty||1,modSugar:m.sugar||'Normal',modIce:m.ice||'Normal',modShot:m.shot||'0',modMilk:m.milk||'regular',modNote:m.note||''})) document.getElementById(id).value=value;
+      const food=modifierProduct.category==='makanan',hot=modifierProduct.name.includes('Panas');
+      for(const id of ['modSize','modSugar','modIce','modShot','modMilk']) {
+        const el=document.getElementById(id);
+        el.disabled=food||(id==='modIce'&&hot)||(id==='modShot'&&modifierProduct.category!=='kopi');
+        el.closest('label').hidden=el.disabled;
       }
+      document.getElementById('modifierForm').oninput=renderModifierPrice;
+      renderModifierPrice();
+      document.getElementById('modifierModal').classList.add('active');
+      document.getElementById('modQty').focus();
+    }
+    function readModifiers() {
+      const val=id=>document.getElementById(id).value;
+      const food=modifierProduct.category==='makanan';
+      return {size:food?'regular':val('modSize'),sugar:food?'':val('modSugar'),ice:food||modifierProduct.name.includes('Panas')?'':val('modIce'),shot:food||modifierProduct.category!=='kopi'?'0':val('modShot'),milk:food?'regular':val('modMilk'),note:val('modNote').trim()};
+    }
+    function modifierExtra(m) {return (m.size==='large'?5000:0)+(m.shot==='1'?5000:0)+(m.milk==='oat'?7000:0)}
+    function renderModifierPrice() {
+      const price=modifierProduct.price+modifierExtra(readModifiers());
+      document.getElementById('modifierPrice').textContent=rupiah(price)+' / item';
+    }
+    function saveModifier() {
+      if(!document.getElementById('modifierForm').reportValidity()) return;
+      const m=readModifiers(),qty=Number(document.getElementById('modQty').value);
+      if(!Number.isInteger(qty)||qty<1||qty>99) return;
+      const prod=modifierProduct;
+      const notes=[prod.category==='makanan'?'':m.size==='large'?'Large':'Regular',m.sugar?'Gula: '+m.sugar:'',m.ice?'Es: '+m.ice:'',m.shot==='1'?'Extra shot':'',m.milk==='oat'?'Susu oat':'',m.note].filter(Boolean).join(' · ');
+      const existing=STATE.posCart.find(i=>i.id===modifierLineId);
+      const item={id:modifierLineId||++STATE.lineSequence,productId:prod.id,name:prod.name,price:prod.price+modifierExtra(m),cost:prod.cost+Math.round(modifierExtra(m)*.35),qty,notes,modifiers:m};
+      if(existing) Object.assign(existing,item); else STATE.posCart.push(item);
+      closeModal('modifierModal'); renderPosCart();
+    }
+    function addProductToPosCart(prod) {
+      STATE.posCart.push({id:++STATE.lineSequence,productId:prod.id,name:prod.name,price:prod.price,cost:prod.cost,qty:1,notes:'Standar'});
       renderPosCart();
     }
-
-    function updatePosQty(id, delta) {
-      const item = STATE.posCart.find(i => i.id === id);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        STATE.posCart = STATE.posCart.filter(i => i.id !== id);
+    function updatePosQty(id,delta) {
+      const item=STATE.posCart.find(i=>i.id===id);
+      if(!item) return;
+      if(STATE.activeBillId&&STATE.posCart.length===1&&item.qty+delta<=0) {
+        notice('Tagihan aktif harus memiliki minimal satu item.');return;
       }
+      item.qty+=delta;
+      STATE.posCart=STATE.posCart.filter(i=>i.qty>0);
+      renderPosCart();
+    }
+    function posTotals() {
+      const subtotal=STATE.posCart.reduce((sum,i)=>sum+i.price*i.qty,0);
+      const discount=Math.min(subtotal,STATE.posDiscountAmount);
+      const tax=Math.round((subtotal-discount)*STATE.taxRate);
+      return {subtotal,discount,tax,total:subtotal-discount+tax};
+    }
+    function setPosDiscount(value) {
+      STATE.posDiscountAmount=Math.max(0,Math.round(Number(value)||0));
       renderPosCart();
     }
 
@@ -3290,8 +3479,9 @@
           div.className = "cart-item";
           div.innerHTML = `
             <div class="cart-item-info">
-              <div class="cart-item-name">${item.name}</div>
-              <div class="cart-item-notes">${item.notes}</div>
+              <div class="cart-item-name">${escapeHtml(item.name)}</div>
+              <div class="cart-item-notes">${escapeHtml(item.notes)}</div>
+              <button style="color:var(--primary); font-size:12px; padding:5px 0;" onclick="openModifier(${item.productId},${item.id})">Edit racikan</button>
               <div class="cart-item-price tabular-nums">Rp${(item.price * item.qty).toLocaleString("id-ID")}</div>
             </div>
             <div class="cart-qty-ctrl">
@@ -3304,10 +3494,8 @@
         });
       }
 
-      const subtotal = STATE.posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const discount = 0;
-      const tax = Math.round(subtotal * STATE.taxRate);
-      const grandTotal = subtotal - discount + tax;
+      const {subtotal,discount,tax,total:grandTotal}=posTotals();
+      document.getElementById("posDiscountInput").value=STATE.posDiscountAmount;
 
       document.getElementById("posSubtotal").innerText = `Rp${subtotal.toLocaleString("id-ID")}`;
       document.getElementById("posDiscount").innerText = `-Rp${discount.toLocaleString("id-ID")}`;
@@ -3321,14 +3509,60 @@
       if (btn) btn.classList.add("active");
     }
 
-    function holdCurrentCart() {
-      if (STATE.posCart.length === 0) {
-        alert("Keranjang kosong, tidak ada pesanan untuk disimpan.");
-        return;
+    function notice(text) {document.getElementById('cashierNotice').textContent=text}
+    function persistBill(send=false) {
+      if(!STATE.posCart.length) {notice('Tambahkan item sebelum menyimpan atau mengirim.');return null}
+      const id=STATE.activeBillId||'CE-'+(++STATE.orderSequence);
+      const old=STATE.activeBills.find(b=>b.id===id);
+      const bill={id,time:old?.time||new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}),items:structuredClone(STATE.posCart),type:STATE.posOrderType,table:STATE.posOrderType==='Dine-in'?STATE.selectedTable:'-',customer:STATE.selectedCustomer.name,customerData:{...STATE.selectedCustomer},discountAmount:STATE.posDiscountAmount,...posTotals()};
+      if(old) Object.assign(old,bill); else STATE.activeBills.push(bill);
+      STATE.activeBillId=id;
+      if(send) {
+        const order=STATE.orders.find(o=>o.id===id);
+        const changed=order&&JSON.stringify(order.items)!==JSON.stringify(bill.items);
+        if(order) Object.assign(order,bill,{status:changed?'proses':order.status});
+        else STATE.orders.unshift({...structuredClone(bill),source:'POS',paymentStatus:'unpaid',status:'proses'});
+        renderOrdersKanban();
       }
-      alert(`Pesanan Meja ${STATE.selectedTable} berhasil disimpan.`);
-      STATE.posCart = [];
+      document.getElementById('activeBillCount').textContent=STATE.activeBills.length;
+      return bill;
+    }
+    function clearPosDraft() {
+      STATE.posCart=[];STATE.activeBillId=null;STATE.posDiscountAmount=0;
+      STATE.selectedCustomer={name:'Umum',points:0};
+      document.getElementById('labelSelectedCustomer').textContent='Pelanggan: Umum';
       renderPosCart();
+    }
+    function holdCurrentCart() {
+      const bill=persistBill();if(!bill)return;
+      clearPosDraft();notice('Tagihan #'+bill.id+' tersimpan. Buka kembali melalui Tagihan Aktif.');
+    }
+    function sendToKitchen() {
+      const bill=persistBill(true);if(!bill)return;
+      notice('#'+bill.id+' dikirim ke dapur · Belum dibayar. Tambahan item dikirim lewat tombol yang sama.');
+    }
+    function openBills() {
+      document.getElementById('billsModal').returnFocus=document.activeElement;
+      if(STATE.posCart.length) persistBill();
+      const list=document.getElementById('activeBillsList');
+      list.innerHTML=STATE.activeBills.length?STATE.activeBills.map(b=>'<div class="bill-row"><div><strong>#'+b.id+' · '+escapeHtml(b.type)+(b.table!=='-'?' · Meja '+escapeHtml(b.table):'')+'</strong><p>'+escapeHtml(b.customer)+' · '+b.time+' · '+b.items.reduce((sum,i)=>sum+i.qty,0)+' item</p><p>'+rupiah(b.total)+' · '+(STATE.orders.some(o=>o.id===b.id)?'Sudah dikirim ke dapur':'Belum dikirim ke dapur')+'</p></div><button class="btn-pay" onclick="loadBill(&quot;'+b.id+'&quot;)">Buka</button></div>').join(''):'<p class="demo-note">Belum ada tagihan aktif. Simpan pesanan dari keranjang kasir.</p>';
+      document.getElementById('billsModal').classList.add('active');
+      document.querySelector('#billsModal button').focus();
+    }
+    function loadBill(id) {
+      if(STATE.activeBillId!==id&&STATE.posCart.length) persistBill();
+      const bill=STATE.activeBills.find(b=>b.id===id);if(!bill)return;
+      if(STATE.activeBillId===id&&STATE.posCart.length) persistBill();
+      STATE.activeBillId=id;STATE.posCart=structuredClone(bill.items);STATE.posDiscountAmount=bill.discountAmount;
+      STATE.posOrderType=bill.type;STATE.selectedTable=bill.table;STATE.selectedCustomer={...bill.customerData};
+      document.querySelectorAll('.order-type-btn').forEach(btn=>btn.classList.toggle('active',btn.textContent.trim()===bill.type));
+      document.getElementById('labelSelectedTable').textContent='Meja: '+bill.table;
+      document.getElementById('labelSelectedCustomer').textContent='Pelanggan: '+bill.customer;
+      closeModal('billsModal');renderPosCart();notice('Mengedit #'+id+' · Perubahan dapur dikirim lewat Kirim ke Dapur.');
+    }
+    function newBill() {
+      if(STATE.posCart.length) persistBill();
+      clearPosDraft();closeModal('billsModal');notice('Tagihan baru · Belum dikirim ke dapur');
     }
 
     /* ------------------------------------------------------------------------
@@ -3341,9 +3575,7 @@
         alert("Pilih setidaknya 1 produk sebelum pembayaran.");
         return;
       }
-      const subtotal = STATE.posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const tax = Math.round(subtotal * STATE.taxRate);
-      const total = subtotal + tax;
+      const {subtotal,tax,total}=posTotals();
 
       document.getElementById("payModalTotal").innerText = `Rp${total.toLocaleString("id-ID")}`;
       document.getElementById("inputCashReceived").value = total;
@@ -3368,9 +3600,7 @@
     }
 
     function setCashAmount(amt) {
-      const subtotal = STATE.posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const tax = Math.round(subtotal * STATE.taxRate);
-      const total = subtotal + tax;
+      const {subtotal,tax,total}=posTotals();
 
       if (amt === "exact") {
         document.getElementById("inputCashReceived").value = total;
@@ -3381,36 +3611,29 @@
     }
 
     function calcChange() {
-      const subtotal = STATE.posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const tax = Math.round(subtotal * STATE.taxRate);
-      const total = subtotal + tax;
+      const {subtotal,tax,total}=posTotals();
       const rec = parseInt(document.getElementById("inputCashReceived").value || 0, 10);
       const change = Math.max(0, rec - total);
       document.getElementById("labelChangeAmount").innerText = `Rp${change.toLocaleString("id-ID")}`;
     }
 
     function executePayment() {
-      const subtotal = STATE.posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const cogs = STATE.posCart.reduce((sum, i) => sum + (i.cost * i.qty), 0);
-      const tax = Math.round(subtotal * STATE.taxRate);
-      const total = subtotal + tax;
-      const orderId = `LK-0${Math.floor(100 + Math.random() * 900)}`;
+      if(!STATE.posCart.length) return;
+      const {subtotal,discount,tax,total}=posTotals();
+      const received=Number(document.getElementById('inputCashReceived').value);
+      if(selectedPayMethodType==='cash'&&(!Number.isFinite(received)||received<total)) {
+        document.getElementById('labelChangeAmount').textContent='Uang diterima belum cukup';return;
+      }
+      const cogs=STATE.posCart.reduce((sum,i)=>sum+i.cost*i.qty,0);
+      const bill=persistBill(true);
+      const orderId=bill.id;
+      const order=STATE.orders.find(o=>o.id===orderId);
+      order.paymentStatus='paid';
+      STATE.activeBills=STATE.activeBills.filter(b=>b.id!==orderId);
+      document.getElementById('activeBillCount').textContent=STATE.activeBills.length;
 
-      STATE.orders.unshift({
-        id: orderId,
-        time: new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }),
-        source: "POS",
-        type: STATE.posOrderType,
-        table: STATE.selectedTable,
-        items: [...STATE.posCart],
-        subtotal: subtotal,
-        tax: tax,
-        total: total,
-        status: "proses"
-      });
-
-      STATE.todayOmzetBraga += subtotal;
-      STATE.monthlyRevenue += subtotal;
+      STATE.todayOmzetBraga += subtotal-discount;
+      STATE.monthlyRevenue += subtotal-discount;
       STATE.monthlyCogs += cogs;
       STATE.totalCashBank += total;
 
@@ -3419,11 +3642,11 @@
         id: `JRN-${Math.floor(900 + Math.random() * 99)}`,
         time: new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }),
         desc: `Penjualan ${STATE.posOrderType} ${orderId} (${selectedPayMethodType.toUpperCase()})`,
-        account: `Dr ${accountDr} Rp${total.toLocaleString("id-ID")} / Cr Penjualan Rp${subtotal.toLocaleString("id-ID")} / Cr Hutang Pajak Rp${tax.toLocaleString("id-ID")} | Dr HPP Rp${cogs.toLocaleString("id-ID")} / Cr Persediaan Rp${cogs.toLocaleString("id-ID")}`,
+        account: `Dr ${accountDr} Rp${total.toLocaleString("id-ID")} / Cr Penjualan Rp${(subtotal-discount).toLocaleString("id-ID")} / Cr Hutang Pajak Rp${tax.toLocaleString("id-ID")} | Dr HPP Rp${cogs.toLocaleString("id-ID")} / Cr Persediaan Rp${cogs.toLocaleString("id-ID")}`,
         amount: total
       });
 
-      showWowToast(`Dr ${accountDr} Rp${total.toLocaleString("id-ID")} Â· Cr Penjualan Rp${subtotal.toLocaleString("id-ID")} Â· HPP Rp${cogs.toLocaleString("id-ID")}`);
+      showWowToast(`Dr ${accountDr} Rp${total.toLocaleString("id-ID")} · Cr Penjualan Rp${(subtotal-discount).toLocaleString("id-ID")} · HPP Rp${cogs.toLocaleString("id-ID")}`);
 
       renderThermalReceipt(orderId, subtotal, tax, total);
 
@@ -3432,7 +3655,8 @@
       document.getElementById("paymentFooterActions").style.display = "none";
       document.getElementById("receiptFooterActions").style.display = "flex";
 
-      STATE.posCart = [];
+      clearPosDraft();
+      notice("Pembayaran #"+orderId+" selesai · Tagihan baru siap dibuat.");
       renderPosCart();
       renderOrdersKanban();
       renderJournalsTable();
@@ -3446,7 +3670,7 @@
       const paper = document.getElementById("receiptPaper");
       paper.innerHTML = `
         <div style="text-align:center;">
-          <h3 style="margin:0; font-size:14px; font-weight:bold;">LOKO COFFEE â€” BRAGA</h3>
+          <h3 style="margin:0; font-size:14px; font-weight:bold;">COFFEE EXPRESS — BRAGA</h3>
           <div>Jl. Braga No. 45, Bandung</div>
           <div>NPWP: 01.345.678.9-428.000</div>
           <div>--------------------------------</div>
@@ -3461,9 +3685,9 @@
         </div>
         <div>--------------------------------</div>
         <div>
-          ${STATE.orders[0].items.map(i => `
+          ${STATE.orders.find(o=>o.id===orderId).items.map(i => `
             <div style="display:flex; justify-content:space-between;">
-              <span>${i.qty}x ${i.name}</span>
+              <span>${i.qty}x ${escapeHtml(i.name)}<br><small>${escapeHtml(i.notes||"")}</small></span>
               <span class="tabular-nums">Rp${(i.price * i.qty).toLocaleString("id-ID")}</span>
             </div>
           `).join("")}
@@ -3472,6 +3696,7 @@
         <div style="display:flex; justify-content:space-between;">
           <span>Subtotal</span>
           <span class="tabular-nums">Rp${subtotal.toLocaleString("id-ID")}</span>
+        </div><div style="display:flex;justify-content:space-between;"><span>Diskon</span><span>${rupiah(STATE.orders.find(o=>o.id===orderId).discount||0)}</span>
         </div>
         <div style="display:flex; justify-content:space-between;">
           <span>${STATE.taxName}</span>
@@ -3483,13 +3708,13 @@
         </div>
         <div style="display:flex; justify-content:space-between;">
           <span>Metode: ${selectedPayMethodType.toUpperCase()}</span>
-          <span>Lunas âœ“</span>
+          <span>Lunas ✓</span>
         </div>
         <div>--------------------------------</div>
         <div style="text-align:center; font-size:11px;">
           Terima kasih atas kunjungan Anda!<br>
           Instagram: @lokocoffee.id<br>
-          [Auto-Journaled to Loko Accounting]
+          [Auto-Journaled to Coffee Express Accounting]
         </div>
       `;
     }
@@ -3570,7 +3795,8 @@
       let countProses = 0;
       let countSiap = 0;
 
-      STATE.orders.forEach(ord => {
+      const visibleOrders=STATE.orders.filter(ord=>STATE.orderFilter==='all'||(STATE.orderFilter==='Online'?ord.source==='Web Order':STATE.orderFilter==='Pickup'?['Pickup','Takeaway'].includes(ord.type):ord.type===STATE.orderFilter));
+      visibleOrders.forEach(ord => {
         const card = document.createElement("div");
         card.className = `order-card ${ord.isNew ? "highlight-new" : ""}`;
         card.id = `orderCard-${ord.id}`;
@@ -3587,14 +3813,15 @@
             <span class="tabular-nums" style="font-size:11px; font-weight:600; color:var(--text-muted);">${ord.time}</span>
           </div>
           <div class="order-id-label">
-            ${ord.id} Â· ${ord.type} ${ord.table !== "-" ? `(Meja ${ord.table})` : ""}
+            ${ord.id} · ${ord.type} ${ord.table !== "-" ? `(Meja ${ord.table})` : ""}
           </div>
           <div class="order-items-preview">
-            ${ord.items.map(i => `${i.qty}x ${i.name}`).join(", ")}
+            ${ord.items.map(i => `<div>${i.qty}x ${escapeHtml(i.name)}${i.notes?`<div class="demo-note">${escapeHtml(i.notes)}</div>`:""}</div>`).join("")}
+            ${ord.outlet ? `<div class="demo-note">${ord.outlet}</div>` : ""}
           </div>
           <div class="order-card-meta">
             <span>Total: <strong class="tabular-nums">Rp${ord.total.toLocaleString("id-ID")}</strong></span>
-            <span style="color:var(--success); font-weight:600;">Lunas</span>
+            <span style="color:var(${ord.paymentStatus === "unpaid" ? "--warning" : "--success"}); font-weight:600;">${ord.paymentStatus === "unpaid" ? "Belum dibayar" : "Lunas"}</span>
           </div>
           <div class="order-card-actions" id="actions-${ord.id}"></div>
         `;
@@ -3605,7 +3832,7 @@
           countBaru++;
           actContainer.innerHTML = `
             <button class="btn-card-action btn-action-primary" onclick="advanceOrderStatus('${ord.id}', 'proses')">
-              Proses Barista âž”
+              Proses Barista ➔
             </button>
           `;
           colBaru.appendChild(card);
@@ -3613,7 +3840,7 @@
           countProses++;
           actContainer.innerHTML = `
             <button class="btn-card-action btn-action-primary" onclick="advanceOrderStatus('${ord.id}', 'siap')">
-              Siap Saji âœ“
+              Siap Saji ✓
             </button>
           `;
           colProses.appendChild(card);
@@ -3629,37 +3856,48 @@
           actContainer.innerHTML = `<span style="font-size:11px; color:var(--text-muted);">Selesai di counter</span>`;
           colSelesai.appendChild(card);
         }
+        // The same destinations are available to keyboard and touch users.
+        const statusSelect = document.createElement('select');
+        statusSelect.className = 'order-status-select';
+        statusSelect.setAttribute('aria-label', 'Pindahkan pesanan ' + ord.id);
+        statusSelect.innerHTML = '<option value="">Pindahkan ke…</option>' +
+          [['proses','Diproses Barista'],['siap','Siap Diambil / Antar'],['selesai','Selesai']]
+          .filter(([value])=>value!==ord.status)
+          .map(([value,label])=>`<option value="${value}">${label}</option>`).join('');
+        statusSelect.onchange = () => {
+          const destination=statusSelect.value;
+          if(!destination) return;
+          advanceOrderStatus(ord.id,destination);
+          document.getElementById('orderCard-'+ord.id)?.querySelector('select')?.focus({preventScroll:true});
+        };
+        card.appendChild(statusSelect);
       });
 
       document.getElementById("countColBaru").innerText = countBaru;
       document.getElementById("countColProses").innerText = countProses;
       document.getElementById("countColSiap").innerText = countSiap;
-      document.getElementById("posOrderCount").innerText = countBaru + countProses;
+      document.getElementById("countColSelesai").innerText = visibleOrders.filter(o=>o.status==='selesai').length;
+      document.getElementById("posOrderCount").innerText = STATE.orders.filter(o=>["baru","proses"].includes(o.status)).length;
     }
 
-    function advanceOrderStatus(orderId, newStatus) {
-      const order = STATE.orders.find(o => o.id === orderId);
-      if (!order) return;
-      order.status = newStatus;
+    function advanceOrderStatus(orderId,newStatus) {
+      const order=STATE.orders.find(o=>o.id===orderId);
+      // New orders only leave the intake queue; operational columns allow corrections.
+      if(!order || !['proses','siap','selesai'].includes(newStatus) || order.status===newStatus) return;
+      const isCorrection = ['baru','proses','siap','selesai'].indexOf(newStatus) < ['baru','proses','siap','selesai'].indexOf(order.status);
+      order.status=newStatus;
       delete order.isNew;
-
-      if (order.source === "Web Order") {
-        if (newStatus === "proses") {
-          showMobilePush("Barista Sedang Meracik", "Pesananmu sedang disiapkan di counter Loko Braga.");
-          updateMobileTrackingStep(2);
-        } else if (newStatus === "siap") {
-          showMobilePush("Pesananmu Siap!", "Silakan ambil di area Pickup Counter Loko Braga.");
-          updateMobileTrackingStep(3);
-        } else if (newStatus === "selesai") {
-          showMobilePush("Pesanan Selesai", "+15 Loko Points telah ditambahkan ke akunmu.");
-          updateMobileTrackingStep(4);
-        }
+      if(order.source==='Web Order') {
+        const message={proses:'Pesanan dikonfirmasi. Barista sedang meracik kopimu.',siap:order.type==='Delivery'?'Pesanan siap diserahkan ke kurir.':'Pesanan siap diambil di counter.',selesai:'Pesanan selesai. Terima kasih, selamat menikmati!'}[newStatus];
+        notifyCustomer('#'+order.id+' · '+(order.outlet || 'Coffee Express — Braga')+'\n'+(isCorrection?'Koreksi status oleh outlet. ':'')+message+(order.paymentStatus==='unpaid'?'\nStatus pembayaran: belum dibayar (uji coba).':''));
+        if(order.id===STATE.lastCreatedOrderId) { refreshTracking(order); showMobilePush('#'+order.id,message); }
       }
-
       renderOrdersKanban();
     }
 
     function filterOrderType(type, btn) {
+      STATE.orderFilter=type;
+      renderOrdersKanban();
       document.querySelectorAll(".pesanan-filter-btn").forEach(b => b.classList.remove("active"));
       if (btn) btn.classList.add("active");
     }
@@ -3720,13 +3958,13 @@
     }
 
     function renderReconciliation() {
-      const lokoBody = document.getElementById("reconcileLokoBody");
+      const lokoBody = document.getElementById("reconcileExpressBody");
       const bankBody = document.getElementById("reconcileBankBody");
 
       lokoBody.innerHTML = `
-        <tr><td>29/09</td><td>Settlement QRIS Braga</td><td class="tabular-nums">Rp4.743.000</td><td><span class="reconcile-match-badge badge-matched">Cocok âœ“</span></td></tr>
-        <tr><td>29/09</td><td>Setoran Tunai Shift Pagi</td><td class="tabular-nums">Rp3.650.000</td><td><span class="reconcile-match-badge badge-matched">Cocok âœ“</span></td></tr>
-        <tr><td>29/09</td><td>Pembelian Biji Kopi Arabika</td><td class="tabular-nums">(Rp2.500.000)</td><td><span class="reconcile-match-badge badge-matched">Cocok âœ“</span></td></tr>
+        <tr><td>29/09</td><td>Settlement QRIS Braga</td><td class="tabular-nums">Rp4.743.000</td><td><span class="reconcile-match-badge badge-matched">Cocok ✓</span></td></tr>
+        <tr><td>29/09</td><td>Setoran Tunai Shift Pagi</td><td class="tabular-nums">Rp3.650.000</td><td><span class="reconcile-match-badge badge-matched">Cocok ✓</span></td></tr>
+        <tr><td>29/09</td><td>Pembelian Biji Kopi Arabika</td><td class="tabular-nums">(Rp2.500.000)</td><td><span class="reconcile-match-badge badge-matched">Cocok ✓</span></td></tr>
         <tr><td>29/09</td><td>Settlement Web Order</td><td class="tabular-nums">Rp527.000</td><td><span class="reconcile-match-badge badge-diff">Belum Klir</span></td></tr>
       `;
 
@@ -3781,7 +4019,7 @@
     }
 
     /* ------------------------------------------------------------------------
-       8. LOKO ORDER (KOPI KENANGAN FLOW)
+       8. COFFEE EXPRESS ORDER (KOPI KENANGAN FLOW)
        ------------------------------------------------------------------------ */
     function renderMobileProducts() {
       const container = document.getElementById("orderProductList");
@@ -3800,7 +4038,7 @@
           <div class="order-prod-thumb">${thumbHtml}</div>
           <div class="order-prod-details">
             <div>
-              <div class="order-prod-name">${p.name} ${p.isBest ? "â˜…" : ""}</div>
+              <div class="order-prod-name">${p.name} ${p.isBest ? "★" : ""}</div>
               <div class="order-prod-desc">${p.category === "kopi" ? "Espresso blend spesial + susu segar" : "Bahan artisan pilihan"}</div>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -3832,7 +4070,7 @@
           <div class="order-prod-thumb">${thumbHtml}</div>
           <div class="order-prod-details">
             <div>
-              <div class="order-prod-name">${p.name} ${p.isBest ? "â˜…" : ""}</div>
+              <div class="order-prod-name">${p.name} ${p.isBest ? "★" : ""}</div>
               <div class="order-prod-desc">${p.category === "kopi" ? "Espresso blend spesial + susu segar" : "Bahan artisan pilihan"}</div>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -3884,17 +4122,18 @@
 
     function toggleMobileOutlet() {
       if (STATE.mobileOutlet.includes("Braga")) {
-        STATE.mobileOutlet = "Loko Coffee â€” Dago";
-        document.getElementById("orderOutletTitle").innerText = "Loko Coffee â€” Dago";
-        document.getElementById("orderOutletDist").innerText = "Jl. Ir. H. Juanda No. 102 Â· 3.4 km dari lokasimu";
+        STATE.mobileOutlet = "Coffee Express — Dago";
+        document.getElementById("orderOutletTitle").innerText = "Coffee Express — Dago";
+        document.getElementById("orderOutletDist").innerText = "Jl. Ir. H. Juanda No. 102 · 3.4 km dari lokasimu";
       } else {
-        STATE.mobileOutlet = "Loko Coffee â€” Braga";
-        document.getElementById("orderOutletTitle").innerText = "Loko Coffee â€” Braga";
-        document.getElementById("orderOutletDist").innerText = "Jl. Braga No. 45 Â· 1.2 km dari lokasimu";
+        STATE.mobileOutlet = "Coffee Express — Braga";
+        document.getElementById("orderOutletTitle").innerText = "Coffee Express — Braga";
+        document.getElementById("orderOutletDist").innerText = "Jl. Braga No. 45 · 1.2 km dari lokasimu";
       }
     }
 
     function openOrderCheckout() {
+      if(!STATE.mobileCart.length) return;
       const itemsContainer = document.getElementById("orderCheckoutItems");
       itemsContainer.innerHTML = "";
 
@@ -3905,6 +4144,11 @@
           <div>
             <strong>${i.qty}x ${i.name}</strong>
             <div style="font-size:11px; color:var(--text-muted);">${i.notes}</div>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+              <button class="btn-secondary" aria-label="Kurangi ${i.name}" onclick="changeMobileQty(${i.id},-1)">−</button>
+              <span>${i.qty}</span>
+              <button class="btn-secondary" aria-label="Tambah ${i.name}" onclick="changeMobileQty(${i.id},1)">+</button>
+            </div>
           </div>
           <span class="tabular-nums">Rp${(i.price * i.qty).toLocaleString("id-ID")}</span>
         `;
@@ -3913,6 +4157,23 @@
 
       calcMobileCartTotal();
       document.getElementById("orderSubpageCheckout").classList.add("active");
+    }
+
+    function changeMobileQty(id,delta) {
+      const item=STATE.mobileCart.find(i=>i.id===id);
+      if(!item) return;
+      item.qty+=delta;
+      STATE.mobileCart=STATE.mobileCart.filter(i=>i.qty>0);
+      renderMobileCart();
+      if(STATE.mobileCart.length) openOrderCheckout(); else closeOrderSubpages();
+    }
+
+    function showLatestOrder() {
+      const order=STATE.orders.find(o=>o.id===STATE.lastCreatedOrderId);
+      if(!order) return;
+      closeOrderSubpages();
+      refreshTracking(order);
+      document.getElementById('orderSubpageTracking').classList.add('active');
     }
 
     function calcMobileCartTotal() {
@@ -3932,64 +4193,60 @@
       document.getElementById("chkDiscount").innerText = `-Rp${(discountPromo + pointsCut).toLocaleString("id-ID")}`;
       document.getElementById("chkTax").innerText = `Rp${tax.toLocaleString("id-ID")}`;
       document.getElementById("chkGrandTotal").innerText = `Rp${grandTotal.toLocaleString("id-ID")}`;
+      document.getElementById("chkTaxLabel").innerText=STATE.taxName+" "+Math.round(STATE.taxRate*100)+"%";
+      document.getElementById('chkBagFee').innerText=rupiah(bagFee);
     }
 
-    function submitMobileOrder() {
-      const subtotal = STATE.mobileCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const cogs = STATE.mobileCart.reduce((sum, i) => sum + (i.cost * i.qty), 0);
-      const usePoints = document.getElementById("chkUsePoints").checked;
-      const addBag = document.getElementById("chkAddBag").checked;
+    function submitMobileOrder(skipPayment = false) {
+      if (!STATE.mobileCart.length) return;
+      const subtotal = STATE.mobileCart.reduce((sum,i) => sum+i.price*i.qty,0);
+      const cogs = STATE.mobileCart.reduce((sum,i) => sum+i.cost*i.qty,0);
+      const discount = Math.round(subtotal*.1) + (document.getElementById('chkUsePoints').checked ? 5000 : 0);
+      const bagFee = document.getElementById('chkAddBag').checked ? 1000 : 0;
+      const net = Math.max(0,subtotal-discount);
+      const tax = Math.round(net*STATE.taxRate);
+      const order = {
+        id: 'CE-'+(++STATE.orderSequence), time:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}),
+        source:'Web Order', type: {pickup:'Pickup',dinein:'Dine-in',delivery:'Delivery'}[STATE.mobileService],
+        table:'-', customer:'Rian Pratama', outlet:STATE.mobileOutlet,
+        items:STATE.mobileCart.map(i=>({...i})), subtotal, tax, total:net+tax+bagFee,
+        paymentStatus:skipPayment?'unpaid':'paid', status:'baru', isNew:true
+      };
+      STATE.orders.unshift(order);
+      STATE.lastCreatedOrderId=order.id;
+      document.getElementById('latestOrderButton').style.display='block';
+      // An unpaid demo order is an operational request, not a received payment.
+      if (!skipPayment) {
+        const revenue=net+bagFee;
+        STATE[order.outlet.includes('Dago')?'todayOmzetDago':'todayOmzetBraga']+=revenue;
+        STATE.monthlyRevenue+=revenue;
+        STATE.monthlyCogs+=cogs;
+        STATE.totalCashBank+=order.total;
+        STATE.journals.unshift({id:'JRN-'+order.id,time:order.time,desc:'Web Order #'+order.id+' (QRIS simulasi)',
+          account:'Dr Piutang QRIS '+rupiah(order.total)+' / Cr Penjualan '+rupiah(revenue)+' / Cr Hutang Pajak '+rupiah(tax)+' | Dr HPP '+rupiah(cogs)+' / Cr Persediaan '+rupiah(cogs),amount:order.total});
+      }
+      notifyCustomer('Halo Rian! Pesanan #'+order.id+' sudah kami terima.\n'+order.outlet+' · '+order.type+'\n'+order.items.map(i=>i.qty+'× '+i.name).join('\n')+'\nTotal: '+rupiah(order.total)+'\n'+(skipPayment?'Belum dibayar — pembayaran dilewati untuk uji coba.':'Pembayaran QRIS berhasil (simulasi).')+'\nMenunggu konfirmasi barista.');
+      STATE.mobileCart=[];
+      renderMobileCart(); renderOrdersKanban(); renderJournalsTable(); updateFinancialMetrics();
+      document.getElementById('orderSubpageCheckout').classList.remove('active');
+      document.getElementById('orderSubpageTracking').classList.add('active');
+      refreshTracking(order);
+      showMobilePush('Pesanan diterima', '#'+order.id+' · Konfirmasi tersedia di WhatsApp simulasi.');
+    }
 
-      const discountPromo = Math.round(subtotal * 0.10);
-      const pointsCut = usePoints ? 5000 : 0;
-      const bagFee = addBag ? 1000 : 0;
-      const taxableBase = Math.max(0, subtotal - discountPromo - pointsCut);
-      const tax = Math.round(taxableBase * STATE.taxRate);
-      const grandTotal = taxableBase + tax + bagFee;
-
-      const orderId = `LK-0${Math.floor(100 + Math.random() * 900)}`;
-      STATE.lastCreatedOrderId = orderId;
-
-      STATE.orders.unshift({
-        id: orderId,
-        time: new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }),
-        source: "Web Order",
-        type: STATE.mobileService === "pickup" ? "Pickup" : (STATE.mobileService === "delivery" ? "Delivery" : "Dine-in"),
-        table: "-",
-        customer: "Rian Pratama",
-        items: [...STATE.mobileCart],
-        subtotal: subtotal,
-        tax: tax,
-        total: grandTotal,
-        status: "baru",
-        isNew: true
-      });
-
-      STATE.todayOmzetBraga += subtotal;
-      STATE.monthlyRevenue += subtotal;
-      STATE.monthlyCogs += cogs;
-      STATE.totalCashBank += grandTotal;
-
-      STATE.journals.unshift({
-        id: `JRN-${Math.floor(900 + Math.random() * 99)}`,
-        time: new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }),
-        desc: `Pesanan Web Online #${orderId} (QRIS Settlement)`,
-        account: `Dr Piutang QRIS Settlement Rp${grandTotal.toLocaleString("id-ID")} / Cr Penjualan Rp${subtotal.toLocaleString("id-ID")} / Cr Hutang Pajak Rp${tax.toLocaleString("id-ID")} | Dr HPP Rp${cogs.toLocaleString("id-ID")} / Cr Persediaan Rp${cogs.toLocaleString("id-ID")}`,
-        amount: grandTotal
-      });
-
-      showMobilePush("Pembayaran Berhasil âœ“", `Pesanan #${orderId} diterima outlet Braga.`);
-
-      STATE.mobileCart = [];
-      renderMobileCart();
-      renderOrdersKanban();
-      renderJournalsTable();
-      updateFinancialMetrics();
-
-      document.getElementById("orderSubpageCheckout").classList.remove("active");
-      document.getElementById("trackOrderNo").innerText = `#${orderId}`;
-      document.getElementById("orderSubpageTracking").classList.add("active");
-      updateMobileTrackingStep(1);
+    function rupiah(value) { return 'Rp'+value.toLocaleString('id-ID'); }
+    function notifyCustomer(text) {
+      STATE.customerMessages.push({type:'in',text});
+      if(STATE.waPersona==='customer') appendWaMessage('in',text);
+    }
+    function openCustomerChat() { switchDevice('assistant'); switchWaPersona('customer'); }
+    function refreshTracking(order) {
+      document.getElementById('trackOrderNo').innerText='#'+order.id;
+      document.getElementById('trackETA').innerText=order.outlet+' · '+order.type;
+      document.querySelector('#step1 p').textContent=order.paymentStatus==='unpaid'?'Belum dibayar · uji coba tanpa pembayaran.':'Pembayaran terkonfirmasi (simulasi).';
+      document.querySelector('#step2 p').textContent='Disiapkan di '+order.outlet+'.';
+      document.querySelector('#step3 h4').textContent=order.type==='Delivery'?'Siap diserahkan ke kurir':'Siap diambil';
+      updateMobileTrackingStep({baru:1,proses:2,siap:3,selesai:4}[order.status]);
     }
 
     function closeOrderSubpages() {
@@ -4017,7 +4274,7 @@
     }
 
     /* ------------------------------------------------------------------------
-       9. LOKO ASSISTANT (WHATSAPP CHATBOT)
+       9. COFFEE EXPRESS ASSISTANT (WHATSAPP CHATBOT)
        ------------------------------------------------------------------------ */
     function initWaChat() {
       switchWaPersona("owner");
@@ -4034,7 +4291,7 @@
       if (persona === "owner") {
         document.getElementById("chipPersonaOwner").classList.add("active");
         
-        appendWaMessage("in", "Selamat malam, Pak Hendra! Ringkasan performa Loko Coffee hari ini:\n\nâ€¢ Omzet Braga: Rp5.940.000 (142 tx)\nâ€¢ Omzet Dago: Rp4.600.000 (114 tx)\nâ€¢ Total Omzet: Rp10.540.000\nâ€¢ HPP Bahan: Rp3.689.000 (35%)\nâ€¢ Estimasi Laba Kotor: Rp6.851.000\n\nKas laci kedua cabang telah terverifikasi klop dengan modal shift. Ada yang ingin dicek lebih lanjut?");
+        appendWaMessage("in", "Selamat malam, Pak Hendra! Ringkasan performa Coffee Express hari ini:\n\n• Omzet Braga: Rp5.940.000 (142 tx)\n• Omzet Dago: Rp4.600.000 (114 tx)\n• Total Omzet: Rp10.540.000\n• HPP Bahan: Rp3.689.000 (35%)\n• Estimasi Laba Kotor: Rp6.851.000\n\nKas laci kedua cabang telah terverifikasi klop dengan modal shift. Ada yang ingin dicek lebih lanjut?");
 
         chipsContainer.innerHTML = `
           <button class="wa-chip-btn" onclick="sendWaPreset('Cek Laba Bersih Bulan Ini')">Laba Bersih Bulan Ini</button>
@@ -4045,7 +4302,7 @@
       } else if (persona === "staff") {
         document.getElementById("chipPersonaStaff").classList.add("active");
 
-        appendWaMessage("in", "Halo Budi (Kasir Braga). Ada yang bisa Loko Assistant bantu untuk operasional kasir atau printer?");
+        appendWaMessage("in", "Halo Budi (Kasir Braga). Ada yang bisa Coffee Express Assistant bantu untuk operasional kasir atau printer?");
 
         chipsContainer.innerHTML = `
           <button class="wa-chip-btn" onclick="sendWaPreset('Bagaimana cara void transaksi?')">Cara Void</button>
@@ -4054,12 +4311,13 @@
         `;
       } else {
         document.getElementById("chipPersonaCustomer").classList.add("active");
+        STATE.customerMessages.forEach(m=>appendWaMessage(m.type,m.text));
 
-        appendWaMessage("in", "Halo Kak Rian. Selamat datang di Loko Assistant. Ada yang bisa kami bantu seputar pesanan atau poinmu hari ini?");
+        appendWaMessage("in", "Halo Kak Rian. Selamat datang di Coffee Express Assistant. Ada yang bisa kami bantu seputar pesanan atau poinmu hari ini?");
 
         chipsContainer.innerHTML = `
           <button class="wa-chip-btn" onclick="sendWaPreset('Cek status pesanan terakhir')">Status Pesanan</button>
-          <button class="wa-chip-btn" onclick="sendWaPreset('Berapa poin Loko saya?')">Cek Poin</button>
+          <button class="wa-chip-btn" onclick="sendWaPreset('Berapa poin Coffee Express saya?')">Cek Poin</button>
           <button class="wa-chip-btn" onclick="sendWaPreset('Voucher promo apa yang aktif?')">Promo Aktif</button>
         `;
       }
@@ -4069,10 +4327,11 @@
       const stream = document.getElementById("waMessagesStream");
       const msg = document.createElement("div");
       msg.className = `wa-msg wa-msg-${type}`;
-      msg.innerHTML = `
-        ${text.replace(/\n/g, "<br>")}
-        <div class="wa-msg-time tabular-nums">${new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" })}</div>
-      `;
+      msg.textContent = text;
+      const time=document.createElement("div");
+      time.className="wa-msg-time tabular-nums";
+      time.textContent=new Date().toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"});
+      msg.appendChild(time);
       stream.appendChild(msg);
       stream.scrollTop = stream.scrollHeight;
     }
@@ -4084,20 +4343,23 @@
         let reply = "";
         const lower = text.toLowerCase();
 
-        if (lower.includes("laba bersih")) {
+        if (lower.includes("status pesanan")) {
+          const order=STATE.orders.find(o=>o.id===STATE.lastCreatedOrderId);
+          reply=order ? "Pesanan #"+order.id+" · "+order.outlet+"\nStatus: "+({baru:"Menunggu konfirmasi",proses:"Sedang diracik",siap:"Siap",selesai:"Selesai"}[order.status])+"\nTotal: "+rupiah(order.total)+"\nPembayaran: "+(order.paymentStatus==="unpaid"?"Belum dibayar":"Lunas (simulasi)") : "Belum ada pesanan dari sesi ini. Yuk, pesan melalui Online Order.";
+        } else if (lower.includes("laba bersih")) {
           reply = `Laba Bersih bulan berjalan saat ini tercatat Rp65.250.000 (Net Margin 20.7%). Pendapatan Rp315.000.000 dikurangi HPP Rp110.250.000 dan beban operasional Rp139.750.000. Neraca dalam kondisi seimbang.`;
         } else if (lower.includes("stok kritis")) {
-          reply = `Alert Bahan Baku: Sirup Karamel sisa 3 botol di Loko Dago. Disarankan order ke Supplier sebelum hari Kamis. Biji Kopi Arabika aman (sisa 18 kg).`;
+          reply = `Alert Bahan Baku: Sirup Karamel sisa 3 botol di Coffee Express Dago. Disarankan order ke Supplier sebelum hari Kamis. Biji Kopi Arabika aman (sisa 18 kg).`;
         } else if (lower.includes("pajak")) {
-          reply = `Estimasi kewajiban pajak bulan ini:\nâ€¢ ${STATE.taxName}: Rp34.650.000\nâ€¢ PPh Final UMKM (0.5%): Rp1.575.000\nData sudah siap ditarik ke format pelaporan SPT Masa.`;
+          reply = `Estimasi kewajiban pajak bulan ini:\n• ${STATE.taxName}: Rp34.650.000\n• PPh Final UMKM (0.5%): Rp1.575.000\nData sudah siap ditarik ke format pelaporan SPT Masa.`;
         } else if (lower.includes("braga vs dago")) {
-          reply = `Performa hari ini:\nâ€¢ Braga: Rp${STATE.todayOmzetBraga.toLocaleString("id-ID")} (58%)\nâ€¢ Dago: Rp${STATE.todayOmzetDago.toLocaleString("id-ID")} (42%)\nBraga unggul di penjualan Aren Latte, sedangkan Dago unggul di Matcha Latte.`;
+          reply = `Performa hari ini:\n• Braga: Rp${STATE.todayOmzetBraga.toLocaleString("id-ID")} (58%)\n• Dago: Rp${STATE.todayOmzetDago.toLocaleString("id-ID")} (42%)\nBraga unggul di penjualan Aren Latte, sedangkan Dago unggul di Matcha Latte.`;
         } else if (lower.includes("void")) {
           reply = `Untuk melakukan Void transaksi di POS:\n1. Buka tab Kasir\n2. Klik menu Pengaturan / Histori Transaksi\n3. Pilih transaksi yang dibatalkan\n4. Masukkan 6 digit PIN Manager\nSemua void otomatis tercatat di Audit Log.`;
         } else if (lower.includes("poin")) {
-          reply = `Saat ini Kak Rian memiliki 14.500 Loko Points (Tier Gold Bean). Kamu bisa tukarkan 5.000 poin untuk diskon Rp5.000 di pesanan berikutnya.`;
+          reply = `Saat ini Kak Rian memiliki 14.500 Coffee Express Points (Tier Gold Bean). Kamu bisa tukarkan 5.000 poin untuk diskon Rp5.000 di pesanan berikutnya.`;
         } else {
-          reply = `Loko Assistant menerima permintaanmu: "${text}". Data operasional telah disinkronkan secara real-time dengan server POS dan pembukuan.`;
+          reply = `Coffee Express Assistant menerima permintaanmu: "${text}". Ini percakapan simulasi. Gunakan pilihan cepat untuk mencoba data pesanan di sesi ini.`;
         }
 
         appendWaMessage("in", reply);
@@ -4116,8 +4378,20 @@
        10. MODALS & PITCH SCRIPT RUNNER
        ------------------------------------------------------------------------ */
     function closeModal(modalId) {
+      document.getElementById(modalId).returnFocus?.focus();
       document.getElementById(modalId).classList.remove("active");
     }
+
+    document.addEventListener('keydown',event=>{
+      const modal=document.querySelector('#modifierModal.active, #billsModal.active');
+      if(!modal) return;
+      if(event.key==='Escape') {event.preventDefault();closeModal(modal.id);return}
+      if(event.key!=='Tab') return;
+      const controls=[...modal.querySelectorAll('button,input,select,textarea')].filter(el=>!el.disabled&&el.offsetParent!==null);
+      const first=controls[0],last=controls.at(-1);
+      if(event.shiftKey&&document.activeElement===first) {event.preventDefault();last.focus()}
+      else if(!event.shiftKey&&document.activeElement===last) {event.preventDefault();first.focus()}
+    });
 
     function openTableModal() {
       const grid = document.getElementById("tableGrid");
@@ -4176,17 +4450,17 @@
         statusEl.style.background = "var(--success-bg)";
         statusEl.style.color = "var(--success)";
         statusEl.style.borderColor = "var(--success-border)";
-        statusEl.innerText = "âœ“ Selisih: Rp0 (Kas Laci Cocok)";
+        statusEl.innerText = "✓ Selisih: Rp0 (Kas Laci Cocok)";
       } else if (diff > 0) {
         statusEl.style.background = "var(--warning-bg)";
         statusEl.style.color = "var(--warning)";
         statusEl.style.borderColor = "var(--warning-border)";
-        statusEl.innerText = `â–² Lebih Fisik: +Rp${diff.toLocaleString("id-ID")}`;
+        statusEl.innerText = `▲ Lebih Fisik: +Rp${diff.toLocaleString("id-ID")}`;
       } else {
         statusEl.style.background = "var(--danger-bg)";
         statusEl.style.color = "var(--danger)";
         statusEl.style.borderColor = "var(--danger-border)";
-        statusEl.innerText = `â–¼ Kurang Fisik: -Rp${Math.abs(diff).toLocaleString("id-ID")}`;
+        statusEl.innerText = `▼ Kurang Fisik: -Rp${Math.abs(diff).toLocaleString("id-ID")}`;
       }
     }
 
